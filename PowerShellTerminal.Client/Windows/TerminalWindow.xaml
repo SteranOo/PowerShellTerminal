@@ -1,0 +1,32 @@
+﻿<Window x:Class="PowerShellTerminal.Client.Windows.TerminalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="PowerShell Terminal" WindowStartupLocation="CenterScreen" Height="600" Width="800">
+    <Grid Margin="0, 5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Name="BtnNewWindow" Content="New window" Width="80" Margin="5, 0" Click="BtnNewWindow_Click"></Button>
+            <Label Content="Text color:"></Label>
+            <xctk:ColorPicker Name="CpTextColor" Width="60" SelectedColor="WhiteSmoke" SelectedColorChanged="CpTextColor_OnSelectedColorChanged"></xctk:ColorPicker>
+            <Label Content="Background color:" Margin="20, 0, 0, 0"></Label>
+            <xctk:ColorPicker Name="CpNgColor" Width="60" SelectedColor="DarkBlue" SelectedColorChanged="CpNgColor_OnSelectedColorChanged"></xctk:ColorPicker>
+        </StackPanel>
+
+        <TextBox Name="TbTerminalLog" Grid.Row="1" Margin="5, 5, 5, 0" IsReadOnly="True" Background="DarkBlue" Foreground="WhiteSmoke" TextWrapping="Wrap"></TextBox>
+
+        <DockPanel Grid.Row="2" Margin="5, 0" >
+            <TextBox Name="TbCurPass" Background="DarkBlue" Foreground="WhiteSmoke" Text="C:\Windows >" IsReadOnly="True" VerticalContentAlignment="Center"></TextBox>
+            <TextBox Name="TbCommand" Background="DarkBlue" Foreground="WhiteSmoke" KeyDown="TbCommand_OnKeyDown" VerticalContentAlignment="Center"></TextBox>
+        </DockPanel>
+        
+    </Grid>
+</Window>
